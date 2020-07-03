@@ -1,0 +1,13 @@
+#use an existing image
+FROM node:alpine
+
+
+WORKDIR /app
+COPY ./package.json ./
+
+#download and install dependency
+RUN npm install
+COPY . .
+
+#tell the image what to do when it starts as container
+CMD ["npm","start"]
